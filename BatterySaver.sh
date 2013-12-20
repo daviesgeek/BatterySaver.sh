@@ -1,4 +1,9 @@
 #!/bin/bash
+  
+  if [ "$(ioreg -l | grep system-type | awk -F'=' '{print $2}' | tr -d ' ')" != '<02>' ]; then
+    echo 'Sorry, this computer is not a laptop';
+    exit 0;
+  fi
 
   source 'global.sh'
 
